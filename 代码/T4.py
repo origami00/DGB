@@ -721,10 +721,7 @@ class DownscaledNWPXGBoostPrediction:
             sample_count_plot = min(1000, len(final_output_df))
             if sample_count_plot > 0:
                 plot_df_sorted = final_output_df.sort_values(by='datetime')
-                # Ensure 'datetime' is present for sampling, then use it for plotting
                 if 'datetime' in plot_df_sorted.columns:
-                    # If the index is also datetime, can use that, otherwise ensure 'datetime' column exists.
-                    # For simplicity, let's assume 'datetime' column is what we need.
                     sample_plot_df = plot_df_sorted.sample(n=sample_count_plot, random_state=42).sort_values(by='datetime')
                     
                     plt.plot(sample_plot_df['datetime'], sample_plot_df['实际功率(MW)'], label='实际功率', alpha=0.7, linewidth=1.5, color='black')

@@ -641,7 +641,7 @@ class NWPXGBoostPrediction:
                                                test_df_report_nwp, test_df_report_no_nwp)
 
 def main():
-    # 主函数入口
+    # 主函数
     data_file_options = ['../PVODdatasets/station01.csv', 'PVODdatasets/station01.csv']
     data_file = None
     for option in data_file_options:

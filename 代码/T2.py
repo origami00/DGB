@@ -109,7 +109,7 @@ class PVPowerPrediction:
                       11: '秋季', 12: '冬季'}
         df['season_num'] = df['month'].map(season_map).astype('category').cat.codes # 数值化季节
 
-        # 周期性特征编码 (替换原有的小时和年内天数)
+        # 周期性特征编码
         df['hour_sin'] = np.sin(2 * np.pi * df['hour'] / 24.)
         df['hour_cos'] = np.cos(2 * np.pi * df['hour'] / 24.)
         df['dayofyear_sin'] = np.sin(2 * np.pi * df['dayofyear'] / 365.)
@@ -261,7 +261,7 @@ class PVPowerPrediction:
 
         X_test_for_model = self.X_test_prepared_features.copy() # 使用存储的测试特征副本
         
-        # 检查并处理NaN (尽管在_create_features中已处理，再次检查以防万一)
+        # 检查并处理NaN
         if X_test_for_model.isnull().any().any():
             print("警告: 用于预测的X_test_prepared_features副本包含NaN值。将尝试用0填充。")
             X_test_for_model.fillna(0, inplace=True)
