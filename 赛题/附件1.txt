@@ -1,0 +1,38 @@
+### 附录1 误差统计指标计算方法  
+#### 均方根误差（E_rmse）  
+均方根误差（E_rmse）由公式(1)计算得出：  
+\[E_{rmse}=\sqrt{\frac{1}{n} \sum_{i=1}^{n}\left(\frac{P_{Pi}-P_{Mi}}{C_{i}}\right)^{2}}\]  
+
+式中：  
+- n——所有样本个数；  
+- P_Pi——i时刻的实际功率；  
+- P_Mi——i时刻的预测功率；  
+- C_i——i时刻的开机容量。  
+
+#### 平均绝对误差（E_mae）  
+平均绝对误差（E_mae）由公式(2)计算得出：  
+\[E_{mae}=\frac{1}{n} \sum_{i=1}^{n}\left|\frac{P_{Pi}-P_{Mi}}{C_{i}}\right|\]  
+
+#### 平均误差（E_me）  
+平均误差（E_me）由公式(3)计算得出：  
+\[E_{me}=\frac{1}{n} \sum_{i=1}^{n}\left(\frac{P_{Pi}-P_{Mi}}{C_{i}}\right)\]  
+
+#### 相关系数（r）  
+相关系数（r）由公式(4)计算得出：  
+\[r=\frac{\sum_{i=1}^{n}\left[\left(P_{Mi}-\overline{P}_{M}\right)\left(P_{Pi}-\overline{P}_{P}\right)\right]}{\sqrt{\sum_{i=1}^{n}\left(P_{Mi}-\overline{P}_{M}\right)^{2} \sum_{i=1}^{n}\left(P_{Pi}-\overline{P}_{P}\right)^{2}}}\]  
+
+式中：  
+- $\overline{P}_M$——误差统计时段实际功率的平均值；  
+- $\overline{P}_P$——误差统计时段预测功率的平均值。  
+
+#### 准确率（C_R）  
+准确率（C_R）由公式(5)计算得出：  
+\[C_{R}=\left(1-E_{rmse}\right)×100\%\]  
+
+#### 合格率（Q_R）  
+合格率（Q_R）由公式(6)、公式(7)计算得出：  
+\[Q_{R}=\frac{1}{n} \sum_{i=1}^{n} B_{i}×100\%\]  
+
+\[B_{i}=\begin{cases}1, & \frac{\left|P_{Pi}-P_{Mi}\right|}{C_{i}}<0.25 \\ 0, & \frac{\left|P_{Pi}-P_{Mi}\right|}{C_{i}} \geq 0.25\end{cases}\]  
+
+其中，B_i为i时刻的预测合格率判定结果。
